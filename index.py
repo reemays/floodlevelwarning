@@ -33,7 +33,7 @@ def func_predict():
 
 if st.button("Predict"): 
     st.write("Current water level: ", func_level())  
-	st.write("Flood Probability: ", func_predict(),'%')
+    st.write("Flood Probability: ", func_predict(),'%')
     
 pd.show_versions()
 
