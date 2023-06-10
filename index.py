@@ -22,7 +22,7 @@ def func_predict():
     msg=msg.json()['feeds'][-1]['field2']
     print("Last updated water level: \n\n"+str(msg))
     level = float(msg)
-    prediction =  [level, 3.0]
+    prediction =  [level, user_input]
     pred = model.predict([prediction])
     pred_int = int(pred*100)
     return pred_int
