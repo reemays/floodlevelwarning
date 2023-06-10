@@ -7,7 +7,8 @@ st.title("Flood Level Prediction")
 
 intensity = st.selectbox( 'RAIN INTENSITY (0 for None, 1 for Light, 2 for Moderate, 3 for Heavy)', ('0', '1', '2','3'))
 
-user_input = pd.DataFrame([[intensity]], columns=["intensity"])
+# user_input = pd.DataFrame([[intensity]], columns=["intensity"])
+user_input = float(intensity)
 
 model = load_model('model.h5')
 model.built = True
