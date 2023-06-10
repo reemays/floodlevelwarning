@@ -12,11 +12,6 @@ user_input = pd.DataFrame([[intensity]], columns=["intensity"])
 model = load_model('model.h5')
 model.built = True
 
-if st.button("Predict"): 
-	st.write("Flood Probability: ", func_predict(),'%')
-    
-pd.show_versions()
-
 def func_predict():
     url = ('https://api.thingspeak.com/channels/2135773/feeds.json?api_key=5ISF03WS3CO2HYSD&results=2')
     print(url)
@@ -30,3 +25,9 @@ def func_predict():
     pred = model.predict([prediction])
     pred_int = int(pred*100)
     return pred_int
+
+if st.button("Predict"): 
+	st.write("Flood Probability: ", func_predict(),'%')
+    
+pd.show_versions()
+
