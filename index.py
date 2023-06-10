@@ -13,6 +13,11 @@ model = load_model('model.h5')
 model.built = True
 
 if st.button("Predict"): 
+	st.write("Flood Probability: ", func_predict(),'%')
+    
+pd.show_versions()
+
+def func_predict():
     url = ('https://api.thingspeak.com/channels/2135773/feeds.json?api_key=5ISF03WS3CO2HYSD&results=2')
     print(url)
     response = requests.get(url)
@@ -24,6 +29,4 @@ if st.button("Predict"):
     prediction =  [level, 3.0]
     pred = model.predict([prediction])
     pred_int = int(pred*100)
-	st.write("Flood Probability: ", pred_int,'%')
-
-pd.show_versions()
+    return pred_int
